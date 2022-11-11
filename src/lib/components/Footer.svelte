@@ -1,6 +1,6 @@
 <footer class="bg-base-200 text-base-content">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-		<div class="footer">
+		<div class="footer p-2 pt-8 sm:p-12">
 			<div>
 				<svg
 					width="50"
