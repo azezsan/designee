@@ -1,106 +1,89 @@
-<script>
-	const Pricing = [
+<script lang="ts">
+	import { inview } from 'svelte-inview'
+
+	interface Plans {
+		header: string
+		price: string
+		description: string
+		benefits: string[]
+		priceId: string
+	}
+
+	const plans: Plans[] = [
 		{
-			heaeder: 'Monthly',
-			description: 'No minimum commitment. Pause or cancel anytime.',
+			header: 'Monthly',
 			price: '$4,995/m',
-			priceDescription: 'Pause or cancel anytime',
-
-			included: [
-				'Unlimited requests',
-				'Unlimited brands',
-				'Unlimited users',
-				'Unlimited stock photos via Shutterstock',
-				'Pause or cancel anytime'
-			]
+			description: 'No minimum commitment. cancel anytime.',
+			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
+			priceId: 'price_1M3zuiJbsquC2kejKnPSNySx'
 		},
 		{
-			heaeder: 'Quarterly',
-			description: 'Save 10% compared to monthly.',
+			header: 'Quarterly',
 			price: '$4,495/m',
-			priceDescription: 'paid quarterly',
-
-			included: [
-				'Unlimited requests',
-				'Unlimited brands',
-				'Unlimited users',
-				'Unlimited stock photos via Shutterstock'
-			]
+			description: 'Save $500 per month, Paid quarterly',
+			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
+			priceId: 'price_1M6ExhJbsquC2kej8d1CQ0Nd'
 		},
 		{
-			heaeder: 'Yearly',
-			description: 'Save 20% compared to monthly.',
+			header: 'Yearly',
 			price: '$3,995/m',
-			priceDescription: 'paid yearly',
-
-			included: [
-				'Unlimited requests',
-				'Unlimited brands',
-				'Unlimited users',
-				'Unlimited stock photos via Shutterstock'
-			]
+			description: 'Save $1,000 per month, Paid annually',
+			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
+			priceId: 'price_1M6ExhJbsquC2kejTqiwLid8'
 		}
 	]
+
+	function handleEnter({ detail }: CustomEvent<ObserverEventDetails>) {
+		detail.node.classList.add('enter')
+	}
 </script>
 
 <section class="bg-base-200 py-20 sm:py-32">
-	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-24">
-		<section class="flex flex-col mx-auto max-w-lg text-center gap-8">
-			<h1 class="text-3xl sm:text-5xl font-bold">Memberships levels</h1>
-			<p class="text-2xl ">Choose a plan that's right for you.</p>
+	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-16">
+		<section use:inview on:enter={handleEnter} class="grid gap-8 text-center opacity-0 translate-y-8">
+			<h2 class="text-3xl sm:text-5xl font-semibold">Memberships levels</h2>
+			<p class="text-2xl">Choose a plan that's right for you.</p>
 		</section>
-		<div class="grid grid-cols-1 sm:grid-cols-4 gap-6 sm:gap-1">
-			{#each Pricing as item}
-				<section class="grid gap-1">
-					<div class="flex flex-col justify-start rounded p-6 shadow-lg bg-base-100 gap-12">
-						<div class="h-24">
-							<h3 class="text-2xl font-bold">{item.heaeder}</h3>
-							<span class="text-base font-normal block">{item.description}</span>
-						</div>
-						<div>
-							<h2 class="text-4xl font-bold">{item.price}</h2>
-							<span class="text-base font-normal block">{item.priceDescription}</span>
-							<button class="btn btn-primary mt-8">Get started</button>
-						</div>
+		<ul
+			use:inview
+			on:enter={handleEnter}
+			class="grid grid-cols-1 sm:grid-cols-3 gap-8 border-base-200 border-8 rounded-3xl opacity-0 translate-y-8"
+		>
+			{#each plans as plan}
+				<li class="flex flex-col gap-8 p-6 rounded-3xl bg-base-100">
+					<h2 class="text-sm font-semibold">{plan.header}</h2>
+					<h2 class="text-3xl font-bold">{plan.price}</h2>
+					<p class="text-sm text-gray-500">{plan.description}</p>
+					<div class="grid gap-3">
+						<form action="/api/stripe" method="POST" class="grid">
+							<input type="hidden" name="priceId" value={plan.priceId} />
+							<button class="btn btn-primary py-2 font-semibold" type="submit">Get started!</button>
+						</form>
+						<a
+							href="https://calendly.com/designee/30minute"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="mx-auto border-b-2 border-dotted">Book a call</a
+						>
 					</div>
-					<ul class="flex flex-col justify-start rounded p-6 shadow-lg bg-base-100 gap-6 h-96">
-						<span class="font-bold">what's included:</span>
-						{#each item.included as included}
-							<li class="text-base font-normal">{'• ' + included}</li>
+
+					<ul class="flex flex-col divide-gray-200 divide-y list-inside list-disc">
+						{#each plan.benefits as benefit}
+							<li class="p-2">{benefit}</li>
 						{/each}
 					</ul>
-				</section>
+				</li>
 			{/each}
-			<section class="grid gap-1">
-				<div class="flex flex-col justify-start rounded p-6 shadow-lg bg-base-100 gap-6 h-auto">
-					<div class="grid gap-3">
-						<img
-							src="https://assets.website-files.com/5837424ae11409586f837994/611abc6c32fdaa097c267b19_dFrame.svg"
-							alt=""
-							class="h-24 mt-10"
-						/>
-						<h3 class="text-2xl font-bold">Custom</h3>
-						<span class="text-base font-normal block">Need something different? We can help.</span>
-						<a href="/" class="font-bold">Contact us</a>
-					</div>
-					<div class="border-2"/>
-					<div class="grid gap-3">
-						<img
-							src="https://assets.website-files.com/5837424ae11409586f837994/611abc6c5e7a2adf4b36ad2c_ddGroup.svg"
-							alt=""
-							class="h-24 mt-10"
-						/>
-						<h3 class="text-2xl font-bold">Refer a friend & earn</h3>
-						<span class="text-base font-normal block">Earn 5% monthly recurring commissions for each referral.</span>
-						<a href="/" class="font-bold">Join now</a>
-					</div>
-				</div>
-			</section>
-			<section class="flex flex-col bg-base-300 text-center rounded shadow-lg sm:col-span-4 p-8 gap-4">
-				<h2 class="text-2xl font-bold">Custom plan</h2>
-				<p>Get a better website faster with Webflow development. Requires a design subscription.</p>
-				<h2 class="text-2xl font-bold">$999/m</h2>
-			</section>
-		</div>
+		</ul>
+		<section
+			use:inview
+			on:enter={handleEnter}
+			class="flex flex-col text-center plans-center gap-5 bg-base-300 rounded-3xl py-8 items-center opacity-0 translate-y-8"
+		>
+			<span class="badge badge-primary">Add-On</span>
+			<h2 class="text-3xl font-semibold">Webflow development</h2>
+			<p class="text-base">All plans include a 14-day free trial. No credit card required.</p>
+			<h2 class="text-3xl font-semibold">$999/m</h2>
+		</section>
 	</div>
 </section>
