@@ -1,37 +1,38 @@
-<script>
+<script lang="ts">
+	import image1 from '$lib/assets/doodles/D6.svg'
+	import { inview } from 'svelte-inview'
 	const List = [
 		{
-			header: 'Rocket',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod'
+			header: 'Effortless Communication',
+			description: 'Communicate with us without disturbing your busy schedule. We communicate round the clock, effortlessly.'
 		},
 		{
-			header: 'Rocket',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod'
+			header: 'Stay Updated',
+			description: 'We will keep you updated on progress and completion through Trello, or any other tool you like!'
 		},
 		{
-			header: 'Rocket',
-			description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod'
+			header: 'Get your Team members on-board',
+			description: 'Want your team on board for review? With us, you can have as many people involved as you like.'
 		}
 	]
+
+	function handleEnter({ detail }: CustomEvent<ObserverEventDetails>) {
+		detail.node.classList.add('enter')
+	}
 </script>
 
-<section class="bg-base-200 py-20 sm:py-32">
+<section class="bg-base-200 py-20 sm:py-32 relative">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 gap-y-24 gap-x-12">
-		<section class="flex flex-col sm:col-span-2 text-center mx-auto max-w-xl gap-7 ">
-			<h2 class="text-5xl font-bold">It’s “you’ll never go back” better</h2>
-			<p class="text-xl">
-				Designjoy replaces unreliable freelancers and expensive agencies for one flat monthly fee,
-				with designs delivered so fast that it will blow your mind.
-			</p>
+		<section use:inview on:enter={handleEnter} class="flex flex-col sm:col-span-2 text-center mx-auto gap-7 opacity-0 translate-y-8">
+			<h2 class="text-5xl font-semibold">Say Goodbye to expensive Freelancers and in-house Designers</h2>
+			<p class="text-2xl">We offer unlimited designs and revisions at a flat monthly fee. No recurring charges!</p>
 		</section>
 		<section
-			class="flex flex-col items-start justify-center gap-6 p-8 bg-base-100 order-last sm:order-none"
+			use:inview
+			on:enter={handleEnter}
+			class="flex flex-col items-start justify-center gap-6 p-8 bg-base-100 order-last sm:order-none rounded-3xl opacity-0 translate-y-8"
 		>
-			<img
-				class="h-6"
-				src="https://assets.website-files.com/5837424ae11409586f837994/6119d7a83723f6d0114590ab_quotation.svg"
-				alt=""
-			/>
+			<img class="h-6" src="https://assets.website-files.com/5837424ae11409586f837994/6119d7a83723f6d0114590ab_quotation.svg" alt="" />
 			<p class="text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod</p>
 			<div class="flex items-center gap-4">
 				<img
@@ -45,11 +46,19 @@
 		</section>
 		<ul class="flex flex-col gap-12">
 			{#each List as item}
-				<li class="flex flex-col gap-2">
-					<h2 class="font-bold text-xl">{item.header}</h2>
-					<p class="text-base">{item.description}</p>
+				<li use:inview on:enter={handleEnter} class="flex flex-col gap-2 opacity-0 translate-y-8">
+					<h2 class="font-medium text-2xl">{item.header}</h2>
+					<p class="text-xl">{item.description}</p>
 				</li>
 			{/each}
 		</ul>
 	</div>
+
+	<img
+		use:inview
+		on:enter={handleEnter}
+		src={image1}
+		alt="Doodle"
+		class="absolute w-[16vw] max-w-[30px] right-0 left-0 mx-auto -bottom-[6%] opacity-0 z-10 -translate-y-8"
+	/>
 </section>
