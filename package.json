@@ -12,6 +12,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@rgossiaux/svelte-headlessui": "^1.0.2",
 		"@sveltejs/adapter-auto": "next",
 		"@sveltejs/kit": "next",
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
@@ -33,6 +34,9 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"daisyui": "^2.38.0"
+		"@rgossiaux/svelte-heroicons": "^0.1.2",
+		"daisyui": "^2.38.0",
+		"stripe": "^10.17.0",
+		"svelte-inview": "^3.0.1"
 	}
 }

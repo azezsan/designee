@@ -1,15 +1,17 @@
-<script>
-    import Hero from "$lib/components/Hero.svelte";
-    import How from "$lib/components/How.svelte";
-	import Features from "$lib/components/Features.svelte"
-    import Benefits from "$lib/components/Benefits.svelte";
-    import Protfolio from "$lib/components/Protfolio.svelte";
-    import Scope from "$lib/components/Scope.svelte";
-    import Pricing from "$lib/components/Pricing.svelte";
-    import Faq from "$lib/components/Faq.svelte";
+<script lang="ts">
+	import Hero from '$lib/components/Hero.svelte'
+	import Carousel from '$lib/components/Carousel.svelte'
+	import Benefits from '$lib/components/Benefits.svelte'
+	import How from '$lib/components/How.svelte'
+	import Scope from '$lib/components/Scope.svelte'
+	import Protfolio from '$lib/components/Protfolio.svelte'
+	import Pricing from '$lib/components/Pricing.svelte'
+	import Features from '$lib/components/Features.svelte'
+	import Faq from '$lib/components/Faq.svelte'
 </script>
 
 <Hero />
+<Carousel />
 <How />
 <Features />
 <Benefits />

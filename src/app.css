@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.enter {
+	@apply transition duration-1000 ease-out !opacity-100 !translate-x-0 !translate-y-0;
+}

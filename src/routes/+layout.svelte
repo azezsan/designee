@@ -4,8 +4,16 @@
 	import Footer from '$lib/components/Footer.svelte'
 </script>
 
+<svelte:head>
+	<title>Designee</title>
+	<meta
+		name="Design as Subscription"
+		content="PayPal is the faster, safer way to send money, make an online payment, receive money or set up a merchant account."
+	/>
+</svelte:head>
+
 <Navbar />
-	<main>
+<main>
 	<slot />
-	</main>
+</main>
 <Footer />
