@@ -1,4 +1,10 @@
 <script lang="ts">
+	import { Disclosure, DisclosureButton, DisclosurePanel } from '@rgossiaux/svelte-headlessui'
+	import { slide } from 'svelte/transition'
+	import image1 from '$lib/assets/doodles/D12.svg'
+	import image2 from '$lib/assets/doodles/D13.svg'
+	import { inview } from 'svelte-inview'
+
 	interface FaqItem {
 		question: string
 		answer: string
@@ -17,8 +23,7 @@
 		},
 		{
 			question: 'How fast will I receive my designs?',
-			answer:
-				'On average, most requests are completed in just two days or less. However, more complex requests can take longer.'
+			answer: 'On average, most requests are completed in just two days or less. However, more complex requests can take longer.'
 		},
 		{
 			question: 'Who are the designers?',
@@ -52,46 +57,57 @@
 		}
 	]
 
-	let activeIndex: number | null
-
-	function toggle(index: number) {
-
-		if (activeIndex === index) {
-			return activeIndex = null
-		} 
-
-		return activeIndex = index
+	function handleEnter({ detail }: CustomEvent<ObserverEventDetails>) {
+		detail.node.classList.add('enter')
 	}
 </script>
 
-
-
-<section class="bg-base-100 py-20 sm:py-32">
+<section class="bg-base-100 py-20 sm:py-32 relative">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-24">
-		<section class="flex flex-col mx-auto max-w-lg text-center gap-8">
+		<section use:inview on:enter={handleEnter} class="flex flex-col mx-auto max-w-lg text-center gap-8 opacity-0 translate-y-8">
 			<h1 class="text-3xl sm:text-5xl font-bold">FAQs</h1>
 			<p class="text-2xl ">We've got answers to all your questions.</p>
 		</section>
-		<ul class="grid gap-8 max-w-7xl">
-			{#each faqs as faq, index}
-				<li
-					on:click={() => toggle(index)}
-					on:keypress
-					class=" place border-b-4 border-base-200 cursor-pointer"
-				>
-					<div class="flex items-center justify-between pb-8">
-						<h2 class="text-xl font-semibold">{faq.question}</h2>
-						<img
-							src="https://assets.website-files.com/5837424ae11409586f837994/615935589047f98085c90963_arrow-down-1%201.svg"
-							alt=""
-							class="h-4 transition duration-300 ease-in-out {activeIndex === index ? "rotate-180" : null}"
-						/>
-					</div>
-					<p class="text-base transition-all duration-700 ease-in-out overflow-hidden {activeIndex === index ? "max-h-20" : "max-h-0"}">
-						{faq.answer}
-					</p>
-				</li>
+		<ul use:inview on:enter={handleEnter} class="grid gap-8 sm:mx-28 opacity-0 translate-y-8">
+			{#each faqs as faq}
+				<Disclosure class="grid" as="li" let:open>
+					<DisclosureButton class="bg-base-200 rounded-3xl p-5 text-start">
+						<div class="flex items-center justify-between">
+							<h2 class="text-xl font-medium">{faq.question}</h2>
+							<img
+								src="https://assets.website-files.com/5837424ae11409586f837994/615935589047f98085c90963_arrow-down-1%201.svg"
+								alt=""
+								class="h-4 transition duration-300 ease-in-out {open ? 'transform rotate-180' : ''}"
+							/>
+						</div>
+						<DisclosurePanel>
+							<p class="text-lg pt-4" transition:slide={{ delay: 0, duration: 300 }}>
+								{faq.answer}
+							</p>
+						</DisclosurePanel>
+					</DisclosureButton>
+				</Disclosure>
 			{/each}
 		</ul>
+		<section use:inview on:enter={handleEnter} class="flex flex-col items-center gap-5 opacity-0 translate-y-8">
+			<p class="text-center text-xl">Have more questions?</p>
+			<a class="btn btn-primary" href="https://calendly.com/designee/30minute" target="_blank" rel="noopener noreferrer">Book a call</a>
+		</section>
 	</div>
+
+	<img
+		use:inview
+		on:enter={handleEnter}
+		src={image1}
+		alt="Doodle"
+		class="absolute w-[16vw] max-w-[220px] -top-[5%] right-0 mx-auto opacity-0 z-10 translate-x-36"
+	/>
+
+	<img
+		use:inview
+		on:enter={handleEnter}
+		src={image2}
+		alt="Doodle"
+		class="absolute w-[16vw] max-w-[130px] -bottom-[5%] left-5 mx-auto opacity-0 z-10 -translate-x-36"
+	/>
 </section>
