@@ -34,22 +34,33 @@
 		}
 	]
 
+	let lazyLoad: boolean
+
+	const options = {
+		rootMargin: '50px',
+		unobserveOnEnter: true
+	}
+
 	function handleEnter({ detail }: CustomEvent<ObserverEventDetails>) {
 		detail.node.classList.add('enter')
 	}
 </script>
 
-<section class="bg-base-200 py-6 sm:py-6 overflow-hidden">
+<section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-300 py-6 sm:py-6 overflow-hidden">
 	<div use:inview on:enter={handleEnter} class="marquee pt-4 opacity-0 translate-y-8">
 		<ul class="marquee-content rounded-3xl" style="--marquee-elements: {images.length}">
 			{#each images as image, i}
 				<li class={i % 2 === 0 ? 'pt-10' : 'pb-10'}>
-					<img src={image.src} alt={image.alt} height="400" width="400" />
+					{#if lazyLoad}
+						<img src={image.src} alt={image.alt} height="400" width="400" />
+					{/if}
 				</li>
 			{/each}
 			{#each images as image, i}
 				<li class={i % 2 === 0 ? 'pt-10' : 'pb-10'}>
-					<img src={image.src} alt={image.alt} height="400" width="400" />
+					{#if lazyLoad}
+						<img src={image.src} alt={image.alt} height="400" width="400" />
+					{/if}
 				</li>
 			{/each}
 		</ul>

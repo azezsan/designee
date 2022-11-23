@@ -38,7 +38,7 @@
 	}
 </script>
 
-<section class="bg-base-200 py-20 sm:py-32">
+<section class="bg-base-200 py-20 sm:py-32" id="Pricing">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-16">
 		<section use:inview on:enter={handleEnter} class="grid gap-8 text-center opacity-0 translate-y-8">
 			<h2 class="text-3xl sm:text-5xl font-semibold">Memberships levels</h2>
@@ -47,7 +47,7 @@
 		<ul
 			use:inview
 			on:enter={handleEnter}
-			class="grid grid-cols-1 sm:grid-cols-3 gap-8 border-base-200 border-8 rounded-3xl opacity-0 translate-y-8"
+			class="grid grid-cols-1 sm:grid-cols-3 gap-8 rounded-3xl opacity-0 translate-y-8"
 		>
 			{#each plans as plan}
 				<li class="flex flex-col gap-8 p-6 rounded-3xl bg-base-100">

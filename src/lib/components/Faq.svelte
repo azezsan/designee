@@ -57,12 +57,19 @@
 		}
 	]
 
+	let lazyLoad: boolean
+
+	const options = {
+		rootMargin: '50px',
+		unobserveOnEnter: true
+	}
+
 	function handleEnter({ detail }: CustomEvent<ObserverEventDetails>) {
 		detail.node.classList.add('enter')
 	}
 </script>
 
-<section class="bg-base-100 py-20 sm:py-32 relative">
+<section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-100 py-20 sm:py-32 relative">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-24">
 		<section use:inview on:enter={handleEnter} class="flex flex-col mx-auto max-w-lg text-center gap-8 opacity-0 translate-y-8">
 			<h1 class="text-3xl sm:text-5xl font-bold">FAQs</h1>
@@ -71,14 +78,16 @@
 		<ul use:inview on:enter={handleEnter} class="grid gap-8 sm:mx-28 opacity-0 translate-y-8">
 			{#each faqs as faq}
 				<Disclosure class="grid" as="li" let:open>
-					<DisclosureButton class="bg-base-200 rounded-3xl p-5 text-start">
+					<DisclosureButton class="bg-base-300 rounded-3xl p-5 text-start">
 						<div class="flex items-center justify-between">
 							<h2 class="text-xl font-medium">{faq.question}</h2>
-							<img
+
+							<!-- !!! CHANGE THIS -->
+							<!-- <img
 								src="https://assets.website-files.com/5837424ae11409586f837994/615935589047f98085c90963_arrow-down-1%201.svg"
 								alt=""
 								class="h-4 transition duration-300 ease-in-out {open ? 'transform rotate-180' : ''}"
-							/>
+							/> -->
 						</div>
 						<DisclosurePanel>
 							<p class="text-lg pt-4" transition:slide={{ delay: 0, duration: 300 }}>
@@ -95,19 +104,20 @@
 		</section>
 	</div>
 
-	<img
-		use:inview
-		on:enter={handleEnter}
-		src={image1}
-		alt="Doodle"
-		class="absolute w-[16vw] max-w-[220px] -top-[5%] right-0 mx-auto opacity-0 z-10 translate-x-36"
-	/>
-
-	<img
-		use:inview
-		on:enter={handleEnter}
-		src={image2}
-		alt="Doodle"
-		class="absolute w-[16vw] max-w-[130px] -bottom-[5%] left-5 mx-auto opacity-0 z-10 -translate-x-36"
-	/>
+	{#if lazyLoad}
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image1}
+			alt="Doodle"
+			class="absolute w-[16vw] max-w-[220px] -top-[5%] right-0 mx-auto opacity-0 z-10 translate-x-36"
+		/>
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image2}
+			alt="Doodle"
+			class="absolute w-[16vw] max-w-[130px] -bottom-[5%] left-5 mx-auto opacity-0 z-10 -translate-x-36"
+		/>
+	{/if}
 </section>

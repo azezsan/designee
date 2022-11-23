@@ -16,12 +16,19 @@
 		}
 	]
 
+	let lazyLoad: boolean
+
+	const options = {
+		rootMargin: '50px',
+		unobserveOnEnter: true
+	}
+
 	function handleEnter({ detail }: CustomEvent<ObserverEventDetails>) {
 		detail.node.classList.add('enter')
 	}
 </script>
 
-<section class="bg-base-200 py-20 sm:py-32 relative">
+<section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-200 py-20 sm:py-32 relative">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 gap-y-24 gap-x-12">
 		<section use:inview on:enter={handleEnter} class="flex flex-col sm:col-span-2 text-center mx-auto gap-7 opacity-0 translate-y-8">
 			<h2 class="text-5xl font-semibold">Say Goodbye to expensive Freelancers and in-house Designers</h2>
@@ -30,9 +37,10 @@
 		<section
 			use:inview
 			on:enter={handleEnter}
-			class="flex flex-col items-start justify-center gap-6 p-8 bg-base-100 order-last sm:order-none rounded-3xl opacity-0 translate-y-8"
+			class="flex flex-col items-start justify-center gap-6 p-8 bg-base-300 order-last sm:order-none rounded-3xl opacity-0 translate-y-8"
 		>
-			<img class="h-6" src="https://assets.website-files.com/5837424ae11409586f837994/6119d7a83723f6d0114590ab_quotation.svg" alt="" />
+			<!-- !!! CHANGE THIS -->
+			<!-- <img class="h-6" src="https://assets.website-files.com/5837424ae11409586f837994/6119d7a83723f6d0114590ab_quotation.svg" alt="" />
 			<p class="text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod</p>
 			<div class="flex items-center gap-4">
 				<img
@@ -42,7 +50,7 @@
 				/>
 
 				<p class="text-lg ">Kevin O'Leary, <span class="font-bold">🦈 Shark Tank</span></p>
-			</div>
+			</div> -->
 		</section>
 		<ul class="flex flex-col gap-12">
 			{#each List as item}
@@ -54,11 +62,13 @@
 		</ul>
 	</div>
 
-	<img
-		use:inview
-		on:enter={handleEnter}
-		src={image1}
-		alt="Doodle"
-		class="absolute w-[16vw] max-w-[30px] right-0 left-0 mx-auto -bottom-[6%] opacity-0 z-10 -translate-y-8"
-	/>
+	{#if lazyLoad}
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image1}
+			alt="Doodle"
+			class="absolute w-[16vw] max-w-[30px] right-0 left-0 mx-auto -bottom-[6%] opacity-0 z-10 -translate-y-8"
+		/>
+	{/if}
 </section>
