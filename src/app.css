@@ -1,7 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		font-family: 'Quicksand', sans-serif;
+	}
+}
+
+.bg-base-300 {
+	background-image: url('lib/assets/images/Texture.webp'), linear-gradient(180deg, #fde7dc, #fde7dc);
+}
+.bg-base-200 {
+	background-image: url('lib/assets/images/Texture.webp'), linear-gradient(180deg, #fbf3e6, #fbf3e6);
+}
+.bg-base-100 {
+	background-image: url('lib/assets/images/Texture.webp'), linear-gradient(180deg, #fffbf5, #fffbf5);
+}
 .enter {
 	@apply transition duration-1000 ease-out !opacity-100 !translate-x-0 !translate-y-0;
 }
