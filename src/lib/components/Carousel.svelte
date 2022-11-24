@@ -37,7 +37,7 @@
 	let lazyLoad: boolean
 
 	const options = {
-		rootMargin: '50px',
+		rootMargin: '100px',
 		unobserveOnEnter: true
 	}
 
@@ -47,7 +47,7 @@
 </script>
 
 <section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-300 py-6 sm:py-6 overflow-hidden">
-	<div use:inview on:enter={handleEnter} class="marquee pt-4 opacity-0 translate-y-8">
+	<div use:inview on:enter={handleEnter} class="marquee opacity-0 translate-y-1/3">
 		<ul class="marquee-content rounded-3xl" style="--marquee-elements: {images.length}">
 			{#each images as image, i}
 				<li class={i % 2 === 0 ? 'pt-10' : 'pb-10'}>
@@ -91,14 +91,6 @@
 		content: '';
 		z-index: 1;
 	}
-	.marquee:before {
-		left: 0;
-		@apply bg-gradient-to-r from-base-200 to-transparent;
-	}
-	.marquee:after {
-		right: 0;
-		@apply bg-gradient-to-l from-base-200 to-transparent;
-	}
 	.marquee-content {
 		list-style: none;
 		height: 100%;
@@ -131,12 +123,11 @@
 		}
 		:root {
 			--marquee-width: 100vw;
-			--marquee-height: 16vh;
-			--marquee-elements-displayed: 3;
+			--marquee-height: 30vh;
+			--marquee-elements-displayed: 2;
 		}
-		.marquee:before,
-		.marquee:after {
-			width: 5rem;
+		.marquee-content {
+			gap: 2rem;
 		}
 	}
 </style>

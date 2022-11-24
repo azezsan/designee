@@ -24,7 +24,7 @@
 	</g>
 </svg>
 
-<style>
+<!-- <style>
 
 	#Star1 {
 		animation: spark 8s ease-in-out infinite alternate forwards;
@@ -53,4 +53,4 @@
 			scale: 1;
 		}
 	}
-</style>
+</style> -->

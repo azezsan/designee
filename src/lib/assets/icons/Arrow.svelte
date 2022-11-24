@@ -16,9 +16,3 @@
 		/>
 	</g>
 </svg>
-
-<style>
-    #Body {
-        stroke-dasharray: 15;
-    }
-</style>

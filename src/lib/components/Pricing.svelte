@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { inview } from 'svelte-inview'
-	import image1 from '$lib/assets/doodles/D11.svg'
+	import image1 from '$lib/assets/doodles/1Line.svg'
 
 	interface Plans {
 		header: string
@@ -37,7 +37,7 @@
 	let lazyLoad: boolean
 
 	const options = {
-		rootMargin: '50px',
+		rootMargin: '100px',
 		unobserveOnEnter: true
 	}
 
@@ -50,12 +50,20 @@
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-16">
 		<section use:inview on:enter={handleEnter} class="grid gap-8 text-center opacity-0 translate-y-8">
 			<h2 class="text-3xl sm:text-5xl font-semibold">Memberships levels</h2>
-			<p class="text-2xl">Choose a plan that's right for you.</p>
+			<p class="text-2xl">Make the wise decision for your business</p>
 		</section>
 		<ul use:inview on:enter={handleEnter} class="grid grid-cols-1 sm:grid-cols-3 gap-8 rounded-3xl opacity-0 translate-y-8">
-			{#each plans as plan}
+			{#each plans as plan, i}
 				<li class="flex flex-col gap-8 p-6 rounded-3xl bg-base-100">
-					<h2 class="text-sm font-semibold">{plan.header}</h2>
+					{#if i === 0}
+						<div class="flex justify-between">
+							<h2 class="text-sm font-semibold">{plan.header}</h2>
+							<h2 class="badge badge-primary">Popular</h2>
+						</div>
+					{:else}
+						<h2 class="text-sm font-semibold">{plan.header}</h2>
+					{/if}
+
 					<h2 class="text-3xl font-bold">{plan.price}</h2>
 					<p class="text-sm text-gray-500">{plan.description}</p>
 					<div class="grid gap-3">
@@ -86,12 +94,18 @@
 		>
 			<span class="badge badge-primary">Add-On</span>
 			<h2 class="text-3xl font-semibold">Webflow development</h2>
-			<p class="text-base">All plans include a 14-day free trial. No credit card required.</p>
+			<p class="text-base">Get a better website faster with Webflow development. Requires a design subscription.</p>
 			<h2 class="text-3xl font-semibold">$999/m</h2>
 		</section>
 	</div>
 
 	{#if lazyLoad}
-		<img src={image1} alt="Doodle" class="absolute top-0 left-0 right-0 mx-auto z-10 -translate-y-1/2" />
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image1}
+			alt="1 Line Doodle"
+			class="absolute w-[16vw] max-h-[100px] top-0 left-0 right-0 mx-auto z-10 opacity-0 !-translate-y-1/2"
+		/>
 	{/if}
 </section>

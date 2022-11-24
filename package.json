@@ -34,7 +34,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@rgossiaux/svelte-heroicons": "^0.1.2",
 		"daisyui": "^2.38.0",
 		"stripe": "^10.17.0",
 		"svelte-inview": "^3.0.1"

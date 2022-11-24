@@ -1,56 +1,51 @@
 <script lang="ts">
-	import image1 from '$lib/assets/doodles/D6.svg'
-	import Scale from '$lib/assets/icons/Scale.svelte'
+	import image1 from '$lib/assets/doodles/WigglyLine.svg'
+	import Speed from '$lib/assets/icons/Speed.svelte'
 	import Stars from '$lib/assets/icons/Stars.svelte'
 	import Fee from '$lib/assets/icons/Fee.svelte'
-	import Face from '$lib/assets/icons/Face.svelte'
+	import Unique from '$lib/assets/icons/Unique.svelte'
+	import Control from '$lib/assets/icons/Control.svelte'
 	import Board from '$lib/assets/icons/Board.svelte'
 
 	import { inview } from 'svelte-inview'
 
 	const List = [
 		{
-			src: Scale,
-			alt: '',
+			src: Board,
 			header: 'Design Board',
-			description: "Add as many design requests to your board as you'd like."
+			description: "Add as many design requests as you like. No extra charges."
 		},
 		{
-			src: Stars,
-			alt: '',
-			header: 'Lightning fast delivery',
-			description: 'Get your design one at a time in just a few days on average.'
+			src: Speed,
+			header: 'Quick Turnaround',
+			description: 'No more waiting for days to get designs. Get results in a few days.'
 		},
 		{
 			src: Fee,
-			alt: '',
-			header: 'Fixed monthly rate',
-			description: 'No surprises here! Pay the same fixed price each month.'
+			header: 'Flat Monthly Fee',
+			description: 'No hidden charges. No recurring charges.'
 		},
 		{
-			src: Face,
-			alt: '',
-			header: 'Top-notch quality',
-			description: 'Insane design quality at your fingertips whenever you need it.'
+			src: Stars,
+			header: 'Top Notch Quality',
+			description: 'The perfect blend of creativity and marketing tactics.'
 		},
 		{
-			src: Board,
-			alt: '',
-			header: 'Flexible and scalable',
-			description: 'Scale up or down as needed, and pause or cancel at anytime.'
+			src: Control,
+			header: 'Have Control of Plan',
+			description: 'Scale, slow down or quit, you have control at all times.'
 		},
 		{
-			src: Board,
-			alt: '',
-			header: 'Unique and all yours',
-			description: 'Each of your designs is made especially for you and is 100% yours.'
+			src: Unique,
+			header: 'Designed for You',
+			description: 'Receive designs tailored to your audience and business.'
 		}
 	]
 
 	let lazyLoad: boolean
 
 	const options = {
-		rootMargin: '50px',
+		rootMargin: '100px',
 		unobserveOnEnter: true
 	}
 
@@ -67,7 +62,7 @@
 			class="flex flex-col mx-auto max-w-lg text-center items-center gap-8 opacity-0 translate-y-8"
 		>
 			<h1 class="text-3xl sm:text-5xl font-semibold">Membership benefits</h1>
-			<p class="text-2xl">Perks so good you'll never need to go anywhere else for your design. Seriously.</p>
+			<p class="text-2xl">A design service crafted to serve you in the best way possible without compromising on the quality of designs and service.</p>
 			<a href={'#Pricing'} class="btn btn-primary">See plans</a>
 		</section>
 		<ul class="grid grid-cols-1 sm:grid-cols-3 gap-24">
@@ -84,6 +79,12 @@
 	</div>
 
 	{#if lazyLoad}
-		<img src={image1} alt="Doodle" class="absolute w-[16vw] max-w-[30px] top-0 right-0 left-0 mx-auto z-10 -translate-y-1/2" />
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image1}
+			alt="Wiggly Line Doodle"
+			class="absolute w-[16vw] max-h-[120px] top-0 right-0 left-0 mx-auto z-10 opacity-0 !-translate-y-1/2"
+		/>
 	{/if}
 </section>

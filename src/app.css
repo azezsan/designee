@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Pacifico&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-	body {
-		font-family: 'Quicksand', sans-serif;
+	html {
 		scroll-behavior: smooth;
+	}
+	body {
+		font-family: 'Kanit', sans-serif;
 	}
 	main {
 		overflow: hidden;
@@ -23,6 +25,7 @@
 .bg-base-100 {
 	background-image: url('lib/assets/images/Texture.webp'), linear-gradient(180deg, #fffbf5, #fffbf5);
 }
+
 .enter {
-	@apply transition duration-1000 ease-out !opacity-100 !translate-x-0 !translate-y-0;
+	@apply transition duration-1000 ease-out opacity-100 translate-x-0 translate-y-0;
 }

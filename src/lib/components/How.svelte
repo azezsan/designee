@@ -1,7 +1,6 @@
 <script lang="ts">
-	import image1 from '$lib/assets/doodles/D3.svg'
-	import image2 from '$lib/assets/doodles/D4.svg'
-	import image3 from '$lib/assets/doodles/D5.svg'
+	import image1 from '$lib/assets/doodles/3Lines.svg'
+	import image2 from '$lib/assets/doodles/YellowDots.svg'
 	import Arrow from '$lib/assets/icons/Arrow.svelte'
 	import Bolt from '$lib/assets/icons/Bolt.svelte'
 	import Infinite from '$lib/assets/icons/Infinite.svelte'
@@ -9,18 +8,15 @@
 
 	const Features = [
 		{
-			icon: Arrow,
-			alt: 'Rocket',
+			icon: Infinite,
 			description: 'Subscription model with unlimited designs'
 		},
 		{
 			icon: Bolt,
-			alt: 'Rocket',
 			description: 'Quick Turnaround in receiving your designs'
 		},
 		{
-			icon: Infinite,
-			alt: 'Rocket',
+			icon: Arrow,
 			description: 'Unlimited revisions to ensure your 100% Satisfaction'
 		}
 	]
@@ -28,7 +24,7 @@
 	let lazyLoad: boolean
 
 	const options = {
-		rootMargin: '50px',
+		rootMargin: '100px',
 		unobserveOnEnter: true
 	}
 
@@ -54,18 +50,16 @@
 			{/each}
 		</ul>
 		<section
-			class="flex flex-col relative justify-center gap-8 text-center bg-base-300 p-10 sm:p-16 rounded-3xl opacity-0 translate-y-8"
+			class="grid relative justify-center gap-8 text-center bg-base-300 p-10 sm:p-16 rounded-3xl opacity-0 translate-y-8"
 			use:inview
 			on:enter={handleEnter}
 		>
 			{#if lazyLoad}
-				<img src={image1} alt="Doodle" class="absolute w-[16vw] max-w-[150px] top-0 left-0 -translate-x-1/2 -translate-y-1/2 " />
-				<img src={image2} alt="Doodle" class="absolute w-[16vw] max-w-[150px] bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
-				<!-- !!! CHANGE THIS! -->
-				<!-- 
-				<img class="h-8" src="https://assets.website-files.com/5837424ae11409586f837994/6119d7a83723f6d0114590ab_quotation.svg" alt="" />
-				<p class="text-3xl sm:text-5xl font-semibold">Designee are offering amazing services! Loved my work</p>
-				<img class="h-8" src="https://assets.website-files.com/5837424ae11409586f837994/6119d7e989cff23b39d11a86_webflow.svg" alt="" /> -->
+				<img src={image1} alt="3 lines Doodle" class="absolute w-[16vw] max-w-[120px] top-16 left-5 -translate-x-1/2 -translate-y-1/2 " />
+				<img src={image2} alt="Yellow Dots Doodle" class="absolute w-[16vw] max-w-[120px] bottom-5 right-0 translate-x-1/2 translate-y-1/2" />
+
+				<p class="text-3xl sm:text-4xl font-medium">Designee are offering amazing services! Loved my work</p>
+				<p class="text-xl sm:text-2xl">Webflow website design</p>
 			{/if}
 		</section>
 	</div>

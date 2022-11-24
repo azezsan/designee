@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { Disclosure, DisclosureButton, DisclosurePanel } from '@rgossiaux/svelte-headlessui'
 	import { slide } from 'svelte/transition'
-	import image1 from '$lib/assets/doodles/D12.svg'
-	import image2 from '$lib/assets/doodles/D6.svg'
-	import image3 from '$lib/assets/doodles/D13.svg'
+	import image1 from '$lib/assets/doodles/GreenLeaf.svg'
+	import image2 from '$lib/assets/doodles/WigglyLine.svg'
+	import image3 from '$lib/assets/doodles/BlueLeaf.svg'
+	import dropdown from '$lib/assets/icons/dropdown.svg'
 	import { inview } from 'svelte-inview'
 
 	interface FaqItem {
@@ -15,7 +16,7 @@
 		{
 			question: "Why wouldn't I just hire a full-time designer?",
 			answer:
-				"Good question! For starters, the annual cost of a full-time senior-level designer now exceeds $100,000, plus benefits (and good luck finding one available). Aside from that, you may not always have enough work to keep them busy at all times, so you're stuck paying for time you aren't able to utilize. With the monthly plan, you can pause and resume your subscription as often as you need to ensure you're only paying your designer when you have work available for them."
+				"Good question! For starters, the annual cost of a full-time senior-level designer now exceeds $100,000, plus benefits (and good luck finding one available). Aside from that, you may not always have enough work to keep them busy at all times, so you're stuck paying for time you aren't able to utilize. With the monthly plan, you can cancel your subscription to ensure you're only paying your designer when you have work available for them."
 		},
 		{
 			question: 'Is there a limit to how many requests I can have?',
@@ -29,7 +30,7 @@
 		{
 			question: 'Who are the designers?',
 			answer:
-				"Our designers are all top-notch, and they're all based in the US. We have a rigorous hiring process, and we only hire the best."
+				"You'll work directly with me, founder of Designee. However, power-ups requests such as animations or custom illustrations are provided by partner designers."
 		},
 		{
 			question: 'What programs do you design in?',
@@ -37,7 +38,7 @@
 		},
 		{
 			question: 'How do I request designs?',
-			answer: 'You can request designs through our website, or you can email us at x.'
+			answer: 'You can request designs through slack, email, wireframesor or sharing Google docs, or even recording a brief Loom video or any tool you like.'
 		},
 		{
 			question: "What if I don't like the design?",
@@ -46,7 +47,7 @@
 		{
 			question: 'What if I only have a single request?',
 			answer:
-				"That's fine. You can pause your subscription when finished and return when you have additional design needs. There's no need to let the remainder of your subscription go to waste."
+				"You will have to subscribe to the monthly plan. currently we don't offer a one time request."
 		},
 		{
 			question: "Are there any refunds if I don't like the service?",
@@ -54,14 +55,14 @@
 		},
 		{
 			question: "What if I have a question that isn't answered here?",
-			answer: 'Feel free to email us at x.'
+			answer: 'Feel free to email us at azzam.manager@gmail.com.'
 		}
 	]
 
 	let lazyLoad: boolean
 
 	const options = {
-		rootMargin: '50px',
+		rootMargin: '100px',
 		unobserveOnEnter: true
 	}
 
@@ -82,13 +83,13 @@
 					<DisclosureButton class="bg-base-300 rounded-3xl p-5 text-start">
 						<div class="flex items-center justify-between">
 							<h2 class="text-xl font-medium">{faq.question}</h2>
-
-							<!-- !!! CHANGE THIS -->
-							<!-- <img
-								src="https://assets.website-files.com/5837424ae11409586f837994/615935589047f98085c90963_arrow-down-1%201.svg"
-								alt=""
-								class="h-4 transition duration-300 ease-in-out {open ? 'transform rotate-180' : ''}"
-							/> -->
+							<img
+								src={dropdown}
+								alt="Dropdown"
+								width="15"
+								height="8"
+								class="transition duration-300 ease-in-out {open ? 'transform rotate-180' : ''}"
+							/>
 						</div>
 						<DisclosurePanel>
 							<p class="text-lg pt-4" transition:slide={{ delay: 0, duration: 300 }}>
@@ -106,8 +107,26 @@
 	</div>
 
 	{#if lazyLoad}
-		<img src={image1} alt="Doodle" class="absolute w-[16vw] max-w-[220px] top-0 right-0 z-10 -translate-y-1/2" />
-		<img src={image2} alt="Doodle" class="absolute w-[16vw] max-w-[30px] top-0 right-0 left-0 mx-auto z-10 -translate-y-1/2" />
-		<img src={image3} alt="Doodle" class="absolute w-[16vw] max-w-[130px] top-0 left-0 z-10 -translate-y-1/2" />
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image1}
+			alt="Green Leaf Doodle"
+			class="absolute w-[20vw] max-w-[220px] top-0 right-0 z-10 opacity-0 !-translate-y-1/2 translate-x-full"
+		/>
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image2}
+			alt="Wiggly Line Doodle"
+			class="absolute max-h-[120px] top-0 right-0 left-0 mx-auto z-10 opacity-0 !-translate-y-1/2 "
+		/>
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image3}
+			alt="Blue Leaf Doodle"
+			class="absolute w-[16vw] max-w-[150px] top-0 left-0 z-10 opacity-0 !-translate-y-1/2 -translate-x-full"
+		/>
 	{/if}
 </section>

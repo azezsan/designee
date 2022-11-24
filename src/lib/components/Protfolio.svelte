@@ -3,8 +3,11 @@
 	import image2 from '$lib/assets/images/Work2.webp'
 	import image3 from '$lib/assets/images/Work3.webp'
 	import image4 from '$lib/assets/images/Work4.webp'
-	import image6 from '$lib/assets/doodles/D7.svg'
-	import image7 from '$lib/assets/doodles/D8.svg'
+	import Dribbble from '$lib/assets/images/Dribbble.svg'
+	import Behance from '$lib/assets/images/Behance.svg'
+	import Awwwards from '$lib/assets/images/Awwwards.svg'
+	import image6 from '$lib/assets/doodles/2Lines.svg'
+	import image7 from '$lib/assets/doodles/YellowDizziness.svg'
 	import { inview } from 'svelte-inview'
 	import type { ObserverEventDetails, Options } from 'svelte-inview'
 
@@ -29,27 +32,29 @@
 
 	const featured = [
 		{
-			image: 'https://assets.website-files.com/5837424ae11409586f837994/5e9ba463b27cf60b2c9a7554_dribbble-logo.svg',
-			alt: 'Kam'
+			image: Dribbble,
+			alt: 'Dribbble Logo',
+			width: '91',
+			height: '23'
 		},
 		{
-			image: 'https://assets.website-files.com/5837424ae11409586f837994/5e9ba4634c5ff90b59c1abdf_lapa-logo.svg',
-			alt: 'Kam'
+			image: Behance,
+			alt: 'Behance Logo',
+			width: '101',
+			height: '19'
 		},
 		{
-			image: 'https://assets.website-files.com/5837424ae11409586f837994/5e9ba46388adf7d226b3bd2e_awwwards-seeklogo.com.svg',
-			alt: 'Kam'
-		},
-		{
-			image: 'https://assets.website-files.com/5837424ae11409586f837994/5e9ba4639aae7e3a14b5f282_product-hunt-logo-horizontal-black.svg',
-			alt: 'Kam'
+			image: Awwwards,
+			alt: 'Awwwards Logo',
+			width: '141',
+			height: '23'
 		}
 	]
 
 	let lazyLoad: boolean
 
 	const options: Options = {
-		rootMargin: '50px',
+		rootMargin: '100px',
 		unobserveOnEnter: true
 	}
 
@@ -62,7 +67,7 @@
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-24">
 		<section use:inview on:enter={handleEnter} class="flex flex-col mx-auto max-w-lg text-center gap-8 opacity-0 translate-y-8">
 			<h1 class="text-3xl sm:text-5xl font-semibold">Recent work</h1>
-			<p class="text-2xl ">Award winning designs, and nothing less.</p>
+			<p class="text-2xl ">Designs that Generate Results</p>
 		</section>
 		<ul class="grid grid-cols-1 sm:grid-cols-2 gap-11">
 			{#each List as item}
@@ -79,9 +84,9 @@
 			<h2 class="text-2xl">Designs commonly featured by</h2>
 			<ul class="flex justify-center gap-6">
 				{#each featured as item}
-					<li>
+					<li class="grid items-end">
 						{#if lazyLoad}
-							<img src={item.image} alt={item.alt} class="h-6" />
+							<img src={item.image} alt={item.alt} width={item.width} height={item.height} />
 						{/if}
 					</li>
 				{/each}
@@ -90,7 +95,19 @@
 	</div>
 
 	{#if lazyLoad}
-		<img src={image7} alt="Doodle" class="absolute w-[16vw] max-w-[100px] top-0 right-0 z-10 -translate-y-1/2" />
-		<img src={image6} alt="Doodle" class="absolute w-[16vw] max-w-[100px] top-0 right-0 left-0 mx-auto z-10 -translate-y-1/2" />
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image7}
+			alt="Yellow Dizziness Doodle"
+			class="absolute w-[25vw] max-w-[220px] top-0 right-0 z-10 opacity-0 !-translate-y-1/2 translate-x-full"
+		/>
+		<img
+			use:inview
+			on:enter={handleEnter}
+			src={image6}
+			alt="2 Lines Doodle"
+			class="absolute w-[16vw] max-h-[100px] top-0 right-0 left-0 mx-auto z-10 opacity-0 !-translate-y-1/2"
+		/>
 	{/if}
 </section>
