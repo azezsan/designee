@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { inview } from 'svelte-inview'
+	import image1 from '$lib/assets/doodles/D11.svg'
 
 	interface Plans {
 		header: string
@@ -33,22 +34,25 @@
 		}
 	]
 
+	let lazyLoad: boolean
+
+	const options = {
+		rootMargin: '50px',
+		unobserveOnEnter: true
+	}
+
 	function handleEnter({ detail }: CustomEvent<ObserverEventDetails>) {
 		detail.node.classList.add('enter')
 	}
 </script>
 
-<section class="bg-base-200 py-20 sm:py-32" id="Pricing">
+<section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-200 py-20 sm:py-32 relative" id="Pricing">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-16">
 		<section use:inview on:enter={handleEnter} class="grid gap-8 text-center opacity-0 translate-y-8">
 			<h2 class="text-3xl sm:text-5xl font-semibold">Memberships levels</h2>
 			<p class="text-2xl">Choose a plan that's right for you.</p>
 		</section>
-		<ul
-			use:inview
-			on:enter={handleEnter}
-			class="grid grid-cols-1 sm:grid-cols-3 gap-8 rounded-3xl opacity-0 translate-y-8"
-		>
+		<ul use:inview on:enter={handleEnter} class="grid grid-cols-1 sm:grid-cols-3 gap-8 rounded-3xl opacity-0 translate-y-8">
 			{#each plans as plan}
 				<li class="flex flex-col gap-8 p-6 rounded-3xl bg-base-100">
 					<h2 class="text-sm font-semibold">{plan.header}</h2>
@@ -86,4 +90,8 @@
 			<h2 class="text-3xl font-semibold">$999/m</h2>
 		</section>
 	</div>
+
+	{#if lazyLoad}
+		<img src={image1} alt="Doodle" class="absolute top-0 left-0 right-0 mx-auto z-10 -translate-y-1/2" />
+	{/if}
 </section>

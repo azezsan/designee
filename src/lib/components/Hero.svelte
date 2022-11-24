@@ -15,7 +15,7 @@
 	}
 </script>
 
-<section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-300 py-16 sm:pb-24 sm:pt-44 relative">
+<section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-300 py-16 sm:pb-24 sm:pt-44 relative overflow-hidden">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-10 place-content-center">
 		<section use:inview on:enter={handleEnter} class="flex flex-col gap-8 text-center max-w-4xl max-h-96 opacity-0 translate-y-8">
 			<h1 class="text-3xl sm:text-6xl font-bold ">Your designing partner- Unlike you've ever seen before</h1>

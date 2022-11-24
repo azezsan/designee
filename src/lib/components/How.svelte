@@ -59,20 +59,8 @@
 			on:enter={handleEnter}
 		>
 			{#if lazyLoad}
-				<img
-					use:inview
-					on:enter={handleEnter}
-					src={image1}
-					alt="Doodle"
-					class="absolute w-[16vw] max-w-[200px] -left-[5%] -top-[9%] opacity-0 -translate-x-44"
-				/>
-				<img
-					use:inview
-					on:enter={handleEnter}
-					src={image2}
-					alt="Doodle"
-					class="absolute w-[16vw] max-w-[200px] -right-[8%] -bottom-[10%] opacity-0 translate-x-44"
-				/>
+				<img src={image1} alt="Doodle" class="absolute w-[16vw] max-w-[150px] top-0 left-0 -translate-x-1/2 -translate-y-1/2 " />
+				<img src={image2} alt="Doodle" class="absolute w-[16vw] max-w-[150px] bottom-0 right-0 translate-x-1/2 translate-y-1/2" />
 				<!-- !!! CHANGE THIS! -->
 				<!-- 
 				<img class="h-8" src="https://assets.website-files.com/5837424ae11409586f837994/6119d7a83723f6d0114590ab_quotation.svg" alt="" />
@@ -81,13 +69,6 @@
 			{/if}
 		</section>
 	</div>
-	<img
-		use:inview
-		on:enter={handleEnter}
-		src={image3}
-		alt="Doodle"
-		class="absolute w-[16vw] max-w-[250px] -left-[2%] -translate-x-44 z-10"
-	/>
 </section>
 
 <style>

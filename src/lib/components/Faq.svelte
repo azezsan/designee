@@ -2,7 +2,8 @@
 	import { Disclosure, DisclosureButton, DisclosurePanel } from '@rgossiaux/svelte-headlessui'
 	import { slide } from 'svelte/transition'
 	import image1 from '$lib/assets/doodles/D12.svg'
-	import image2 from '$lib/assets/doodles/D13.svg'
+	import image2 from '$lib/assets/doodles/D6.svg'
+	import image3 from '$lib/assets/doodles/D13.svg'
 	import { inview } from 'svelte-inview'
 
 	interface FaqItem {
@@ -105,19 +106,8 @@
 	</div>
 
 	{#if lazyLoad}
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image1}
-			alt="Doodle"
-			class="absolute w-[16vw] max-w-[220px] -top-[5%] right-0 mx-auto opacity-0 z-10 translate-x-36"
-		/>
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image2}
-			alt="Doodle"
-			class="absolute w-[16vw] max-w-[130px] -bottom-[5%] left-5 mx-auto opacity-0 z-10 -translate-x-36"
-		/>
+		<img src={image1} alt="Doodle" class="absolute w-[16vw] max-w-[220px] top-0 right-0 z-10 -translate-y-1/2" />
+		<img src={image2} alt="Doodle" class="absolute w-[16vw] max-w-[30px] top-0 right-0 left-0 mx-auto z-10 -translate-y-1/2" />
+		<img src={image3} alt="Doodle" class="absolute w-[16vw] max-w-[130px] top-0 left-0 z-10 -translate-y-1/2" />
 	{/if}
 </section>

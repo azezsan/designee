@@ -5,11 +5,12 @@
 @tailwind utilities;
 
 @layer base {
-	html {
-		scroll-behavior: smooth;
-	}
 	body {
 		font-family: 'Quicksand', sans-serif;
+		scroll-behavior: smooth;
+	}
+	main {
+		overflow: hidden;
 	}
 }
 

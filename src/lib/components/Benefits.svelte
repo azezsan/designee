@@ -1,6 +1,5 @@
 <script lang="ts">
-	import image1 from '$lib/assets/doodles/D7.svg'
-	import image2 from '$lib/assets/doodles/D8.svg'
+	import image1 from '$lib/assets/doodles/D6.svg'
 	import Scale from '$lib/assets/icons/Scale.svelte'
 	import Stars from '$lib/assets/icons/Stars.svelte'
 	import Fee from '$lib/assets/icons/Fee.svelte'
@@ -85,19 +84,6 @@
 	</div>
 
 	{#if lazyLoad}
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image1}
-			alt="Doodle"
-			class="absolute w-[16vw] max-w-[100px] right-0 left-0 mx-auto -bottom-[6%] z-10 opacity-0 -translate-y-8 rotate-3"
-		/>
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image2}
-			alt="Doodle"
-			class="absolute w-[16vw] max-w-[150px] right-2 -bottom-[10%] z-10 opacity-0 translate-x-32"
-		/>
+		<img src={image1} alt="Doodle" class="absolute w-[16vw] max-w-[30px] top-0 right-0 left-0 mx-auto z-10 -translate-y-1/2" />
 	{/if}
 </section>

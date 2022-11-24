@@ -1,5 +1,5 @@
 <script lang="ts">
-	import image1 from '$lib/assets/doodles/D6.svg'
+	import image1 from '$lib/assets/doodles/D5.svg'
 	import { inview } from 'svelte-inview'
 	const List = [
 		{
@@ -63,12 +63,6 @@
 	</div>
 
 	{#if lazyLoad}
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image1}
-			alt="Doodle"
-			class="absolute w-[16vw] max-w-[30px] right-0 left-0 mx-auto -bottom-[6%] opacity-0 z-10 -translate-y-8"
-		/>
+		<img src={image1} alt="Doodle" class="absolute w-[16vw] max-w-[130px] top-0 left-0 z-10 -translate-y-1/2" />
 	{/if}
 </section>

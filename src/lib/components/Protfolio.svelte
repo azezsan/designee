@@ -1,9 +1,10 @@
 <script lang="ts">
-	import image1 from '$lib/assets/images/work-1.webp'
-	import image2 from '$lib/assets/images/work-2.webp'
-	import image3 from '$lib/assets/images/work-3.webp'
-	import image4 from '$lib/assets/images/work-4.webp'
-	import image5 from '$lib/assets/doodles/D9.svg'
+	import image1 from '$lib/assets/images/Work1.webp'
+	import image2 from '$lib/assets/images/Work2.webp'
+	import image3 from '$lib/assets/images/Work3.webp'
+	import image4 from '$lib/assets/images/Work4.webp'
+	import image6 from '$lib/assets/doodles/D7.svg'
+	import image7 from '$lib/assets/doodles/D8.svg'
 	import { inview } from 'svelte-inview'
 	import type { ObserverEventDetails, Options } from 'svelte-inview'
 
@@ -81,8 +82,6 @@
 					<li>
 						{#if lazyLoad}
 							<img src={item.image} alt={item.alt} class="h-6" />
-						{:else}
-							<div class="h-[24px]" />
 						{/if}
 					</li>
 				{/each}
@@ -91,12 +90,7 @@
 	</div>
 
 	{#if lazyLoad}
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image5}
-			alt="Doodle"
-			class="absolute w-[16vw] max-w-[100px] left-5 -bottom-[4%] opacity-0 z-10 -translate-x-24"
-		/>
+		<img src={image7} alt="Doodle" class="absolute w-[16vw] max-w-[100px] top-0 right-0 z-10 -translate-y-1/2" />
+		<img src={image6} alt="Doodle" class="absolute w-[16vw] max-w-[100px] top-0 right-0 left-0 mx-auto z-10 -translate-y-1/2" />
 	{/if}
 </section>
