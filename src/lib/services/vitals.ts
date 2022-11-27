@@ -59,3 +59,7 @@ export function webVitals(options) {
 		console.error('[Analytics]', err)
 	}
 }
+
+
+// Q: how long does a human live?
+// A: 70 years

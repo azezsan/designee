@@ -1,8 +1,8 @@
 import type { RequestHandler } from '@sveltejs/kit'
-import { STRIPE_LIVE_KEY } from '$env/static/private'
+import { STRIPE_KEY } from '$env/static/private'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(STRIPE_LIVE_KEY, {
+const stripe = new Stripe(STRIPE_KEY, {
 	apiVersion: '2022-08-01'
 })
 
