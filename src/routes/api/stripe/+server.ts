@@ -1,17 +1,18 @@
-import type { RequestHandler } from '@sveltejs/kit'
-import { STRIPE_LIVE_KEY } from '$env/static/private'
+import { redirect, error, type RequestHandler } from '@sveltejs/kit'
+import { STRIPE_KEY } from '$env/static/private'
 import Stripe from 'stripe'
 
-const stripe = new Stripe(STRIPE_LIVE_KEY, {
+const stripe = new Stripe(STRIPE_KEY, {
 	apiVersion: '2022-08-01'
 })
 
 export const POST: RequestHandler = async ({ request }) => {
 	const host = new URL(request.url).host
 
-	const res = await request.formData()
+	const formData = await request.formData()
+	const data = Object.fromEntries(formData.entries())
 
-	const priceId = res.get('priceId')
+	const priceId = data.priceId as string
 
 	const session = await stripe.checkout.sessions.create({
 		line_items: [
@@ -26,5 +27,9 @@ export const POST: RequestHandler = async ({ request }) => {
 		cancel_url: `http://${host}/`
 	})
 
-	return Response.redirect(session.url, 303)
+	if (session?.url) {
+		throw redirect(301 ,session.url)
+	} else {
+		throw error(500, 'Something went wrong')
+	}
 }
