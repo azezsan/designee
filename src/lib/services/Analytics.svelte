@@ -3,16 +3,23 @@
 	import { webVitals } from '$lib/services/vitals'
 	import { browser } from '$app/environment'
 	import { page } from '$app/stores'
+	import { getContext } from 'svelte'
 
-	inject()
+	const environment = getContext('environment')
 
-	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
-
-	$: if (browser && analyticsId) {
-		webVitals({
-			path: $page.url.pathname,
-			params: $page.params,
-			analyticsId
-		})
+	if (environment === 'production') {
+		inject()
+	
+		let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
+	
+		if (browser && analyticsId) {
+			webVitals({
+				path: $page.url.pathname,
+				params: $page.params,
+				analyticsId
+			})
+		}
+	} else {
+		console.log('Analytics disabled')
 	}
 </script>

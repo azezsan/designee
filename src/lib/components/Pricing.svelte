@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { inview } from 'svelte-inview'
 	import image1 from '$lib/assets/doodles/1Line.svg'
+	import { getContext } from 'svelte'
+
+	const environment = getContext('environment')
 
 	interface Plans {
 		header: string
@@ -16,21 +19,21 @@
 			price: '$4,995/m',
 			description: 'No minimum commitment. cancel anytime.',
 			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
-			priceId: 'price_1M7pUHJbsquC2kejNyNv0B3D'
+			priceId: environment === 'production' ? 'price_1M7pUHJbsquC2kejNyNv0B3D' : 'price_1M9ar5JbsquC2kejqHHjWeKG'
 		},
 		{
 			header: 'Quarterly',
 			price: '$4,495/m',
 			description: 'Save $500 per month, Paid quarterly',
 			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
-			priceId: 'price_1M7pn5JbsquC2kejKneoxIBT'
+			priceId: environment === 'production' ? 'price_1M7pn5JbsquC2kejKneoxIBT' : 'price_1M9asSJbsquC2kejZKcO8lUS'
 		},
 		{
 			header: 'Yearly',
 			price: '$3,995/m',
 			description: 'Save $1,000 per month, Paid annually',
 			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
-			priceId: 'price_1M7polJbsquC2kej7MLnkFnf'
+			priceId: environment === 'production' ? 'price_1M7polJbsquC2kej7MLnkFnf' : 'price_1M9atPJbsquC2kejCyStyofO'
 		}
 	]
 
