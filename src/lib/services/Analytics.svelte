@@ -3,23 +3,31 @@
 	import { webVitals } from '$lib/services/vitals'
 	import { browser } from '$app/environment'
 	import { page } from '$app/stores'
-	import { getContext } from 'svelte'
 
-	const environment = getContext('environment')
+	inject()
 
-	if (environment === 'production') {
-		inject()
-	
-		let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
-	
-		if (browser && analyticsId) {
-			webVitals({
-				path: $page.url.pathname,
-				params: $page.params,
-				analyticsId
-			})
-		}
-	} else {
-		console.log('Analytics disabled')
+	let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
+
+	if (browser && analyticsId) {
+		webVitals({
+			path: $page.url.pathname,
+			params: $page.params,
+			analyticsId
+		})
 	}
+	console.log('Analytics disabled')
+
 </script>
+
+<svelte:head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-WKFSBS095N"></script>
+	<script>
+		window.dataLayer = window.dataLayer || []
+		function gtag() {
+			dataLayer.push(arguments)
+		}
+		gtag('js', new Date())
+
+		gtag('config', 'G-WKFSBS095N')
+	</script>
+</svelte:head>

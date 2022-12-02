@@ -2,6 +2,7 @@
 	import '../app.css'
 	import preview from '$lib/assets/images/preview.jpg'
 	import Analytics from '$lib/services/Analytics.svelte'
+	import Crisp from '$lib/services/Crisp.svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Footer from '$lib/components/Footer.svelte'
 	import { setContext } from 'svelte'
@@ -28,7 +29,14 @@
 	<meta property="twitter:card" content="summary_large_image" />
 </svelte:head>
 
-<Analytics />
+{#if import.meta.env.VITE_VERCEL_ENV === 'production'}
+	<Analytics />
+	<Crisp />
+{:else}
+	<script>
+		console.log('Services disabled')
+	</script>
+{/if}
 
 <Header />
 <main>
