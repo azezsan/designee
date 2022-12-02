@@ -29,9 +29,11 @@
 	<meta property="twitter:card" content="summary_large_image" />
 </svelte:head>
 
-{#if import.meta.env.VITE_VERCEL_ENV === 'production'}
-	<Analytics />
+{#if import.meta.env.VITE_VERCEL_ENV !== 'development'}
 	<Crisp />
+	{#if import.meta.env.VITE_VERCEL_ENV === 'production'}
+		<Analytics />
+	{/if}
 {:else}
 	<script>
 		console.log('Services disabled')
