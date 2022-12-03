@@ -1,16 +1,16 @@
 <script lang="ts">
 	import '../app.css'
 	import preview from '$lib/assets/images/preview.jpg'
-	import Analytics from '$lib/services/Analytics.svelte'
-	import Crisp from '$lib/services/Crisp.svelte'
+	import Analytics from '$lib/services/vercel/Analytics.svelte'
+	import Gtm from '$lib/services/google/Gtm.svelte'
+	import Crisp from '$lib/services/crisp/Crisp.svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Footer from '$lib/components/Footer.svelte'
-	import { setContext } from 'svelte'
-
-	setContext('environment', import.meta.env.VITE_VERCEL_ENV)
 
 	const title = 'Designee - Design Subscription Service 🎨'
 	const description = 'The best Design subscription service for you, Unlimited design & revisions for Apps, Websites, Social Media, and a lot more!'
+
+	console.log(import.meta.env.VITE_VERCEL_ENV)
 </script>
 
 <svelte:head>
@@ -29,13 +29,10 @@
 	<meta property="twitter:card" content="summary_large_image" />
 </svelte:head>
 
+<Gtm />
+<Crisp />
 {#if import.meta.env.VITE_VERCEL_ENV === 'production'}
 	<Analytics />
-	<Crisp />
-{:else}
-	<script>
-		console.log('Services disabled')
-	</script>
 {/if}
 
 <Header />
