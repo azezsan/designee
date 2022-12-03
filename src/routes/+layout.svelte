@@ -12,6 +12,8 @@
 
 	const title = 'Designee - Design Subscription Service 🎨'
 	const description = 'The best Design subscription service for you, Unlimited design & revisions for Apps, Websites, Social Media, and a lot more!'
+
+	console.log(import.meta.env.VITE_VERCEL_ENV)
 </script>
 
 <svelte:head>
