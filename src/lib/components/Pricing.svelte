@@ -4,6 +4,7 @@
 	import { getContext } from 'svelte'
 
 	const environment = getContext('environment')
+	const isProduction = environment === 'production'
 
 	interface Plans {
 		header: string
@@ -19,21 +20,21 @@
 			price: '$4,995/m',
 			description: 'No minimum commitment. cancel anytime.',
 			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
-			priceId: environment === 'production' ? 'price_1M7pUHJbsquC2kejNyNv0B3D' : 'price_1M9ar5JbsquC2kejqHHjWeKG'
+			priceId: isProduction ? 'price_1M7pUHJbsquC2kejNyNv0B3D' : 'price_1M9ar5JbsquC2kejqHHjWeKG'
 		},
 		{
 			header: 'Quarterly',
 			price: '$4,495/m',
 			description: 'Save $500 per month, Paid quarterly',
 			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
-			priceId: environment === 'production' ? 'price_1M7pn5JbsquC2kejKneoxIBT' : 'price_1M9asSJbsquC2kejZKcO8lUS'
+			priceId: isProduction ? 'price_1M7pn5JbsquC2kejKneoxIBT' : 'price_1M9asSJbsquC2kejZKcO8lUS'
 		},
 		{
 			header: 'Yearly',
 			price: '$3,995/m',
 			description: 'Save $1,000 per month, Paid annually',
 			benefits: ['Unlimited requests', 'Unlimited brands', 'Unlimited users', 'Unlimited stock photos'],
-			priceId: environment === 'production' ? 'price_1M7polJbsquC2kej7MLnkFnf' : 'price_1M9atPJbsquC2kejCyStyofO'
+			priceId: isProduction ? 'price_1M7polJbsquC2kej7MLnkFnf' : 'price_1M9atPJbsquC2kejCyStyofO'
 		}
 	]
 
@@ -74,12 +75,7 @@
 							<input type="hidden" name="priceId" value={plan.priceId} />
 							<button class="btn btn-primary py-2 font-semibold" type="submit">Get started!</button>
 						</form>
-						<a
-							href="https://calendly.com/designee/30minute"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="mx-auto border-b-2 border-dotted">Book a call</a
-						>
+						<a href="https://calendly.com/designee/30minute" target="_blank" rel="noopener noreferrer" class="mx-auto border-b-2 border-dotted">Book a call</a>
 					</div>
 
 					<ul class="flex flex-col divide-gray-200 divide-y list-inside list-disc">
@@ -90,11 +86,7 @@
 				</li>
 			{/each}
 		</ul>
-		<section
-			use:inview
-			on:enter={handleEnter}
-			class="flex flex-col text-center plans-center gap-5 bg-base-300 rounded-3xl py-8 items-center opacity-0 translate-y-8"
-		>
+		<section use:inview on:enter={handleEnter} class="flex flex-col text-center plans-center gap-5 bg-base-300 rounded-3xl py-8 items-center opacity-0 translate-y-8">
 			<span class="badge badge-primary">Add-On</span>
 			<h2 class="text-3xl font-semibold">Webflow development</h2>
 			<p class="text-base">Get a better website faster with Webflow development. Requires a design subscription.</p>
@@ -103,12 +95,6 @@
 	</div>
 
 	{#if lazyLoad}
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image1}
-			alt="1 Line Doodle"
-			class="absolute w-[16vw] max-h-[100px] top-0 left-0 right-0 mx-auto z-10 opacity-0 !-translate-y-1/2"
-		/>
+		<img use:inview on:enter={handleEnter} src={image1} alt="1 Line Doodle" class="absolute w-[16vw] max-h-[100px] top-0 left-0 right-0 mx-auto z-10 opacity-0 !-translate-y-1/2" />
 	{/if}
 </section>
