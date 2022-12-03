@@ -1,8 +1,9 @@
 <script lang="ts">
 	import '../app.css'
 	import preview from '$lib/assets/images/preview.jpg'
-	import Analytics from '$lib/services/Analytics.svelte'
-	import Crisp from '$lib/services/Crisp.svelte'
+	import Analytics from '$lib/services/vercel/Analytics.svelte'
+	import Gtm from '$lib/services/google/Gtm.svelte'
+	import Crisp from '$lib/services/crisp/Crisp.svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Footer from '$lib/components/Footer.svelte'
 	import { setContext } from 'svelte'
@@ -28,6 +29,8 @@
 	<meta property="twitter:image" content={preview} />
 	<meta property="twitter:card" content="summary_large_image" />
 </svelte:head>
+
+<Gtm />
 
 {#if import.meta.env.VITE_VERCEL_ENV !== 'development'}
 	<Crisp />
