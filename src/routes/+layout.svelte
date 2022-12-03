@@ -6,9 +6,6 @@
 	import Crisp from '$lib/services/crisp/Crisp.svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Footer from '$lib/components/Footer.svelte'
-	import { setContext } from 'svelte'
-
-	setContext('environment', import.meta.env.VITE_VERCEL_ENV)
 
 	const title = 'Designee - Design Subscription Service 🎨'
 	const description = 'The best Design subscription service for you, Unlimited design & revisions for Apps, Websites, Social Media, and a lot more!'
@@ -33,16 +30,9 @@
 </svelte:head>
 
 <Gtm />
-
-{#if import.meta.env.VITE_VERCEL_ENV !== 'development'}
-	<Crisp />
-	{#if import.meta.env.VITE_VERCEL_ENV === 'production'}
-		<Analytics />
-	{/if}
-{:else}
-	<script>
-		console.log('Services disabled')
-	</script>
+<Crisp />
+{#if import.meta.env.VITE_VERCEL_ENV === 'production'}
+	<Analytics />
 {/if}
 
 <Header />

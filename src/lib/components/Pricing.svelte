@@ -1,10 +1,8 @@
 <script lang="ts">
 	import { inview } from 'svelte-inview'
 	import image1 from '$lib/assets/doodles/1Line.svg'
-	import { getContext } from 'svelte'
 
-	const environment = getContext('environment')
-	const isProduction = environment === 'production'
+	const isProduction = import.meta.env.VITE_VERCEL_ENV === 'production'
 
 	interface Plans {
 		header: string
