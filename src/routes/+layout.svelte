@@ -30,10 +30,8 @@
 </svelte:head>
 
 <Gtm />
-<Crisp />
-{#if import.meta.env.VITE_VERCEL_ENV === 'production'}
-	<Analytics />
-{/if}
+
+<Analytics />
 
 <Header />
 <main>
