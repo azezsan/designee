@@ -3,9 +3,6 @@
 	import preview from '$lib/assets/images/preview.jpg'
 	import Analytics from '$lib/services/vercel/Analytics.svelte'
 	import Gtm from '$lib/services/google/Gtm.svelte'
-	import Crisp from '$lib/services/crisp/Crisp.svelte'
-	import Header from '$lib/components/Header.svelte'
-	import Footer from '$lib/components/Footer.svelte'
 
 	const title = 'Designee - Design Subscription Service 🎨'
 	const description = 'The best Design subscription service for you, Unlimited design & revisions for Apps, Websites, Social Media, and a lot more!'
@@ -27,14 +24,11 @@
 	<meta property="twitter:description" content={description} />
 	<meta property="twitter:image" content={preview} />
 	<meta property="twitter:card" content="summary_large_image" />
+
+	<script src="https://js.stripe.com/v3" async />
 </svelte:head>
 
 <Gtm />
-
 <Analytics />
 
-<Header />
-<main>
-	<slot />
-</main>
-<Footer />
+<slot />
