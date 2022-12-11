@@ -55,7 +55,7 @@
 		},
 		{
 			question: "What if I have a question that isn't answered here?",
-			answer: 'Feel free to email us at azzam.manager@gmail.com.'
+			answer: 'Feel free to email us at sales@designee.io.'
 		}
 	]
 
