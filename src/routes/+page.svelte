@@ -8,14 +8,28 @@
 	import Pricing from '$lib/components/Pricing.svelte'
 	import Features from '$lib/components/Features.svelte'
 	import Faq from '$lib/components/Faq.svelte'
+	import Header from '$lib/components/Header.svelte'
+	import Footer from '$lib/components/Footer.svelte'
+
+
+	export let data
 </script>
 
-<Hero />
-<Carousel />
-<How />
-<Features />
-<Benefits />
-<Protfolio />
-<Scope />
-<Pricing />
-<Faq />
+<main>
+	<h1><span>Hello from the edge!</span></h1>
+
+	<div class="info">
+		<div class="block">
+			<div class="contents">
+				<span>Your city</span>
+				<strong>{data.city}</strong>
+			</div>
+		</div>
+		<div class="block">
+			<div class="contents">
+				<span>Your IP address</span>
+				<strong>{data.ip}</strong>
+			</div>
+		</div>
+	</div>
+</main>
