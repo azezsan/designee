@@ -10,6 +10,7 @@
 	import Faq from '$lib/components/Faq.svelte'
 	import Header from '$lib/components/Header.svelte'
 	import Footer from '$lib/components/Footer.svelte'
+	import Reviews from '$lib/components/Reviews.svelte'
 </script>
 
 <Header />
@@ -22,6 +23,7 @@
 	<Protfolio />
 	<Scope />
 	<Pricing />
+	<Reviews />
 	<Faq />
 </main>
 <Footer />
