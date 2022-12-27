@@ -23,7 +23,15 @@ module.exports = {
 	theme: {
 		extend: {
 			animation: {
-				'spin-slow': 'spin 3s linear infinite'
+				'spin-slow': 'spin 3s linear infinite',
+				marquee: 'marquee var(--marquee-duration) linear infinite'
+			},
+			keyframes: {
+				marquee: {
+					'100%': {
+						transform: 'translateY(-50%)'
+					}
+				}
 			}
 		}
 	},

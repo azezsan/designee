@@ -16,6 +16,15 @@
 .bg-base-300 {
 	background-image: url('lib/assets/images/Texture.webp'), linear-gradient(180deg, #fde7dc, #fde7dc);
 }
+
+.bg-base-300-gradient-b {
+	background-image: url('lib/assets/images/Mask.png'), linear-gradient(180deg, #fde7dc, transparent);
+}
+.bg-base-300-gradient-t {
+	background-image: url('lib/assets/images/Mask.png'), linear-gradient(180deg, #fde7dc, transparent);
+	transform: rotate(180deg);
+}
+
 .bg-base-200 {
 	background-image: url('lib/assets/images/Texture.webp'), linear-gradient(180deg, #fbf3e6, #fbf3e6);
 }
