@@ -14,43 +14,43 @@
 	const images = [
 		{
 			src: carousel1,
-			alt: 'Kam'
+			alt: 'Website design for digital prudects markting agency'
 		},
 		{
 			src: carousel2,
-			alt: 'Kam'
+			alt: 'Website design for a clothing brand'
 		},
 		{
 			src: carousel3,
-			alt: 'Kam'
+			alt: 'Website design for messaging app'
 		},
 		{
 			src: carousel4,
-			alt: 'Kam'
+			alt: 'Website design for a mattress company'
 		},
 		{
 			src: carousel5,
-			alt: 'Kam'
+			alt: 'Website design for a freelnaing platform'
 		},
 		{
 			src: carousel6,
-			alt: 'Kam'
+			alt: 'Website design for selling homes'
 		},
 		{
 			src: carousel7,
-			alt: 'Kam'
+			alt: 'Website design for interior design company'
 		},
 		{
 			src: carousel8,
-			alt: 'Kam'
+			alt: 'Website design for Jewelry brand'
 		},
 		{
 			src: carousel9,
-			alt: 'Kam'
+			alt: 'Website design for a digital learning and DIY'
 		},
 		{
 			src: carousel10,
-			alt: 'Kam'
+			alt: 'Website design for an interior design brand'
 		}
 	]
 

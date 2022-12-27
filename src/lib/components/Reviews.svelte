@@ -8,60 +8,60 @@
 
 	const reviews: Reviews[] = [
 		{
-			body: 'I downloaded Pocket today and turned $5000 into $25,000 in half an hour.',
-			author: 'CrazyInvestor'
+			body: 'As a small business owner, I was hesitant to invest in a new website. But Designee made the process easy and the end result was worth it. Highly recommend.',
+			author: 'William T'
 		},
 		{
-			body: 'I didn’t understand the stock market at all before Pocket. I still don’t, but at least I’m rich now.',
-			author: 'CluelessButRich'
+			body: 'Designee team exceeded our expectations. Highly recommend.',
+			author: 'Benjamin D'
 		},
 		{
-			body: 'Pocket makes it so easy to win big in the stock market that I can’t believe it’s actually legal.',
-			author: 'LivingDaDream'
+			body: 'I worked with Designee many times, They are very reliable and responsive, and I highly recommend them!',
+			author: 'Abdulaziz A'
 		},
 		{
-			body: 'I barely made any money investing in mutual funds. With Pocket, I’m doubling my net-worth every single month.',
-			author: 'JordanBelfort1962'
+			body: 'I was impressed with Designee efficiency. Highly recommend.',
+			author: 'Emily W'
 		},
 		{
-			body: 'I started providing insider information myself and now I get new insider tips every 5 minutes. I don’t even have time to act on all of them. New Lamborghini is being delivered next week!',
-			author: 'MrBurns'
+			body: 'Great partner to work with!',
+			author: 'Salman Mohammad'
 		},
 		{
-			body: 'I was making money so fast with Pocket that it felt like a scam. But I sold my shares and withdrew the money and it’s really there, right in my bank account. This app is crazy!',
-			author: 'LazyRich99'
+			body: 'Designee was one of the best Ive worked with. Highly recommend.',
+			author: 'Rachel G'
 		},
 		{
-			body: 'This is literally the most important app you will ever download in your life. Get on this before it’s so popular that everyone else is getting these tips too.',
-			author: 'SarahLuvzCash'
+			body: 'I was extremely satisfied with the work that Designee did on my website. They were able to take my vision and turn it into a reality, and the end result was exactly what I had hoped for.',
+			author: 'Jessica D'
 		},
 		{
-			body: 'Yeah, you read that right. Want your own island too? Get Pocket.',
-			author: 'ScroogeMcduck'
+			body: 'Designee team did a great job on our site. Highly recommend them.',
+			author: 'Othmane G'
 		},
 		{
-			body: 'After 2 weeks of trading on Pocket I was debt-free. Why did I even go to school at all when Pocket exists?',
-			author: 'BruceWayne'
+			body: 'Very happy with the work done by Designee team. Professional and efficient.',
+			author: 'Nicole T'
 		},
 		{
-			body: 'I love that with Pocket’s transaction anonymization I could sign up and start trading when I was 12 years old. I had a million dollars before I had armpit hair!',
-			author: 'RichieRich'
+			body: 'Was a pleasure to work with. Excellent results.',
+			author: 'Michael B'
 		},
 		{
-			body: 'I charge clients a 3% management fee and just throw all their investments into Pocket. Easy money!',
-			author: 'TheCountOfMonteChristo'
+			body: 'Our website looks fantastic thanks Designee. Highly recommend their services.',
+			author: 'Ethan J'
 		},
 		{
-			body: 'Every tip Pocket has sent me has paid off. It’s like playing Blackjack but knowing exactly what card is coming next!',
-			author: 'ClarkKent'
+			body: 'From start to finish, the team was professional and efficient, and the end result was a stunning and user-friendly site that perfectly reflects our brand.',
+			author: 'Madison G'
 		},
 		{
-			body: 'I downloaded Pocket three days ago and quit my job today. I can’t believe no one else thought to build a stock trading app that works this way!',
-			author: 'GeorgeCostanza'
+			body: 'Awesome experience loved the results, thanks!',
+			author: 'Sophia A'
 		},
 		{
-			body: 'Unless you want to have the best life ever! I am literally writing this from a yacht.',
-			author: 'JeffBezos'
+			body: 'Working with Designee was easy to do and they delivered quickly! Will work with again!"',
+			author: 'Rohan D'
 		}
 	]
 

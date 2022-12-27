@@ -7,7 +7,19 @@
 	let lazyLoad: boolean
 
 	onMount(() => {
-		isMounted = true
+		function isCalendlyEvent(e: MessageEvent) {
+			return e.origin === 'https://calendly.com' && e.data.event && e.data.event.indexOf('calendly.') === 0
+		}
+
+		window.addEventListener('message', function (e) {
+			if (isCalendlyEvent(e)) {
+				/* Example to get the name of the event */
+				console.log('Event name:', e.data.event)
+
+				/* Example to get the payload of the event */
+				console.log('Event details:', e.data.payload)
+			}
+		})
 	})
 
 	const options = {
@@ -33,7 +45,7 @@
 				<!-- Calendly inline widget begin -->
 				<div
 					class="calendly-inline-widget"
-					data-url="https://calendly.com/designee/30minute?hide_gdpr_banner=1&primary_color=1A1A1A"
+					data-url="https://calendly.com/designee/30minute?primary_color=1A1A1A"
 					style="min-width:320px;height:{width <= 1063 ? '1200px' : '750px'};"
 				/>
 				<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>

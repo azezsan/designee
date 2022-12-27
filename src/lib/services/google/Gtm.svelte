@@ -28,6 +28,9 @@
 				j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl + '&gtm_auth=8Y08YJicQFH0tVUVEq7FvQ&gtm_preview=env-5&gtm_cookies_win=x'
 				f.parentNode.insertBefore(j, f)
 			})(window, document, 'script', 'dataLayer', 'GTM-W658KV4')
+
+			window.dataLayer = window.dataLayer || []
+			window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js'})
 		</script>
 	{/if}
 </svelte:head>
