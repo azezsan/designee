@@ -24,8 +24,6 @@
 	<meta property="twitter:description" content={description} />
 	<meta property="twitter:image" content={preview} />
 	<meta property="twitter:card" content="summary_large_image" />
-
-	<script src="https://js.stripe.com/v3" async />
 </svelte:head>
 
 <Gtm />
