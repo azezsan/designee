@@ -46,6 +46,10 @@
 			<h1 class="text-3xl sm:text-5xl font-semibold">A Glimpse Into Our World</h1>
 		</section>
 
+		<a href="https://calendly.com/designee/30minute" target="_blank" rel="noopener noreferrer" class="button_parent mx-auto" role="button">
+			<span class="button_top_200">Schedule Your FREE Audit Call Now</span>
+		</a>
+
 		<section use:inview on:enter={handleEnter} class="grid mx-auto text-center gap-6 opacity-0 translate-y-8">
 			<h2 class="text-2xl">Designs commonly featured by</h2>
 			<ul class="flex justify-center gap-6">

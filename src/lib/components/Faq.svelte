@@ -20,8 +20,7 @@
 		},
 		{
 			question: 'Is there a limit to how many requests I can have?',
-			answer:
-				"Once subscribed, you're able to add as many design requests to your queue as you'd like, and they will be delivered one by one."
+			answer: "Once subscribed, you're able to add as many design requests to your queue as you'd like, and they will be delivered one by one."
 		},
 		{
 			question: 'How fast will I receive my designs?',
@@ -29,8 +28,7 @@
 		},
 		{
 			question: 'Who are the designers?',
-			answer:
-				"You'll work directly with me, founder of Designee. However, power-ups requests such as animations or custom illustrations are provided by partner designers."
+			answer: "You'll work directly with me, founder of Designee. However, power-ups requests such as animations or custom illustrations are provided by partner designers."
 		},
 		{
 			question: 'What programs do you design in?',
@@ -46,8 +44,7 @@
 		},
 		{
 			question: 'What if I only have a single request?',
-			answer:
-				"You will have to subscribe to the monthly plan. currently we don't offer a one time request."
+			answer: "You will have to subscribe to the monthly plan. currently we don't offer a one time request."
 		},
 		{
 			question: "Are there any refunds if I don't like the service?",
@@ -83,13 +80,7 @@
 					<DisclosureButton class="bg-base-300 rounded-3xl p-5 text-start">
 						<div class="flex items-center justify-between">
 							<h2 class="text-xl font-medium">{faq.question}</h2>
-							<img
-								src={dropdown}
-								alt="Dropdown"
-								width="15"
-								height="8"
-								class="transition duration-300 ease-in-out {open ? 'transform rotate-180' : ''}"
-							/>
+							<img src={dropdown} alt="Dropdown" width="15" height="8" class="transition duration-300 ease-in-out {open ? 'transform rotate-180' : ''}" />
 						</div>
 						<DisclosurePanel>
 							<p class="text-lg pt-4" transition:slide={{ delay: 0, duration: 300 }}>
@@ -101,8 +92,10 @@
 			{/each}
 		</ul>
 		<section use:inview on:enter={handleEnter} class="flex flex-col items-center gap-5 opacity-0 translate-y-8">
-			<p class="text-center text-xl">Have more questions?</p>
-			<a class="btn btn-primary" href="https://calendly.com/designee/30minute" target="_blank" rel="noopener noreferrer">Book a call</a>
+			<p class="text-center text-xl">Ready To Get Started</p>
+			<a href="https://calendly.com/designee/30minute" target="_blank" rel="noopener noreferrer" class="button_parent mx-auto" role="button">
+				<span class="button_top_300">Schedule Your FREE Audit Call Now</span>
+			</a>
 		</section>
 	</div>
 
@@ -114,13 +107,7 @@
 			alt="Green Leaf Doodle"
 			class="absolute w-[20vw] max-w-[220px] top-0 right-0 z-10 opacity-0 !-translate-y-1/2 translate-x-full"
 		/>
-		<img
-			use:inview
-			on:enter={handleEnter}
-			src={image2}
-			alt="Wiggly Line Doodle"
-			class="absolute max-h-[120px] top-0 right-0 left-0 mx-auto z-10 opacity-0 !-translate-y-1/2 "
-		/>
+		<img use:inview on:enter={handleEnter} src={image2} alt="Wiggly Line Doodle" class="absolute max-h-[120px] top-0 right-0 left-0 mx-auto z-10 opacity-0 !-translate-y-1/2 " />
 		<img
 			use:inview
 			on:enter={handleEnter}

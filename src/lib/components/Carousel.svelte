@@ -73,7 +73,7 @@
 				<ul class="marquee__group">
 					{#each images as image, i}
 						<li>
-							<img src={image.src} alt={image.alt} class={i % 2 ? 'pt-8' : 'pb-8'} />
+							<img src={image.src} alt={image.alt} height="400" width="500" class={i % 2 ? 'pt-8' : 'pb-8'} />
 						</li>
 					{/each}
 				</ul>

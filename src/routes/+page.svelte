@@ -17,7 +17,7 @@
 <main>
 	<Hero />
 	<Carousel />
-	<How />
+	<!-- <How /> -->
 	<Features />
 	<Benefits />
 	<Protfolio />
