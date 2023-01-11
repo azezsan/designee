@@ -13,7 +13,7 @@
 		{
 			src: Board,
 			header: 'Design Board',
-			description: "Add as many design requests as you like. No extra charges."
+			description: 'Add as many design requests as you like. No extra charges.'
 		},
 		{
 			src: Speed,
@@ -56,14 +56,12 @@
 
 <section use:inview={options} on:enter={() => (lazyLoad = true)} class="bg-base-100 py-20 sm:py-32 relative">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-24">
-		<section
-			use:inview
-			on:enter={handleEnter}
-			class="flex flex-col mx-auto max-w-lg text-center items-center gap-8 opacity-0 translate-y-8"
-		>
+		<section use:inview on:enter={handleEnter} class="flex flex-col mx-auto max-w-lg text-center items-center gap-8 opacity-0 translate-y-8">
 			<h1 class="text-3xl sm:text-5xl font-semibold">Membership benefits</h1>
 			<p class="text-2xl">A design service crafted to serve you in the best way possible without compromising on the quality of designs and service.</p>
-			<a href={'#Pricing'} class="btn btn-primary">See plans</a>
+			<a href="https://calendly.com/designee/30minute" target="_blank" rel="noopener noreferrer" class="button_parent mx-auto" role="button">
+				<span class="button_top_300">Schedule Your FREE Audit Call Now</span>
+			</a>
 		</section>
 		<ul class="grid grid-cols-1 sm:grid-cols-3 gap-24">
 			{#each List as item}

@@ -8,14 +8,22 @@
 	import Pricing from '$lib/components/Pricing.svelte'
 	import Features from '$lib/components/Features.svelte'
 	import Faq from '$lib/components/Faq.svelte'
+	import Header from '$lib/components/Header.svelte'
+	import Footer from '$lib/components/Footer.svelte'
+	import Reviews from '$lib/components/Reviews.svelte'
 </script>
 
-<Hero />
-<Carousel />
-<How />
-<Features />
-<Benefits />
-<Protfolio />
-<Scope />
-<Pricing />
-<Faq />
+<Header />
+<main>
+	<Hero />
+	<Carousel />
+	<How />
+	<Features />
+	<Benefits />
+	<Protfolio />
+	<Scope />
+	<Pricing />
+	<Reviews />
+	<Faq />
+</main>
+<Footer />

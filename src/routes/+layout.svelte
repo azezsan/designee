@@ -3,14 +3,22 @@
 	import preview from '$lib/assets/images/preview.jpg'
 	import Analytics from '$lib/services/vercel/Analytics.svelte'
 	import Gtm from '$lib/services/google/Gtm.svelte'
-	import Crisp from '$lib/services/crisp/Crisp.svelte'
-	import Header from '$lib/components/Header.svelte'
-	import Footer from '$lib/components/Footer.svelte'
+	import Loading from '$lib/assets/icons/Loading.svelte'
+	import { onMount } from 'svelte'
 
 	const title = 'Designee - Design Subscription Service 🎨'
 	const description = 'The best Design subscription service for you, Unlimited design & revisions for Apps, Websites, Social Media, and a lot more!'
 
-	console.log(import.meta.env.VITE_VERCEL_ENV)
+	let loading = true
+	let hidden = false
+
+	onMount(() => {
+		loading = false
+
+		setTimeout(() => {
+			hidden = true
+		}, 1000)
+	})
 </script>
 
 <svelte:head>
@@ -29,14 +37,16 @@
 	<meta property="twitter:card" content="summary_large_image" />
 </svelte:head>
 
-<Gtm />
-<Crisp />
-{#if import.meta.env.VITE_VERCEL_ENV === 'production'}
+<div
+	class="fixed grid items-center justify-center top-0 left-0 bottom-0 right-0 z-[9999] h-screen w-screen bg-[#fffbf5] transition duration-1000 
+	{loading ? 'opacity-100' : 'opacity-0'} {hidden ? 'hidden' : 'block'}"
+>
+	<Loading />
+</div>
+
+{#if !loading}
+	<Gtm />
 	<Analytics />
 {/if}
 
-<Header />
-<main>
-	<slot />
-</main>
-<Footer />
+<slot />

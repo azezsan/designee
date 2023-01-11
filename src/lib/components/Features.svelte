@@ -4,12 +4,12 @@
 	import { inview } from 'svelte-inview'
 	const List = [
 		{
-			header: 'Effortless Communication',
-			description: 'Communicate with us without disturbing your busy schedule. We communicate round the clock, effortlessly.'
+			header: 'Designs that drive sales',
+			description: 'designed to persuade potential customers to make a purchase or take a desired action.'
 		},
 		{
-			header: 'Stay Updated',
-			description: 'We will keep you updated on progress and completion through Trello, or any other tool you like!'
+			header: 'Effortless Communication',
+			description: 'Communicate with us without disturbing your busy schedule. We communicate round the clock, effortlessly.'
 		},
 		{
 			header: 'Get your Team members on-board',
@@ -37,9 +37,7 @@
 		</section>
 		<section use:inview on:enter={handleEnter} class="grid items-start gap-9 p-8 bg-base-300 rounded-3xl opacity-0 translate-y-1/3">
 			<span class="text-7xl font-extrabold -mb-10">“</span>
-			<p class="text-3xl sm:text-4xl font-medium">
-				if you want to work with a creative team, responsive, and detail focus while executing fast, Designee is what you need!
-			</p>
+			<p class="text-3xl sm:text-4xl font-medium">if you want to work with a creative team, responsive, and detail focus while executing fast, Designee is what you need!</p>
 			<div class="flex gap-4">
 				<img src={ben} alt="Ben" class="rounded-full w-[50px] h-[50px]" height="50" width="50" />
 				<div class="flex flex-col">

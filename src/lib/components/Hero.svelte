@@ -20,11 +20,12 @@
 		<section use:inview on:enter={handleEnter} class="flex flex-col gap-8 text-center max-w-4xl max-h-96 opacity-0 translate-y-8 z-10">
 			<h1 class="text-3xl sm:text-6xl font-bold ">Your designing partner- Unlike you've ever seen before</h1>
 			<p class="text-2xl">Design services on a subscription model!</p>
-			<a href={'#Pricing'} class="btn btn-primary mx-auto">See plans</a>
+			<a href="https://calendly.com/designee/30minute" target="_blank" rel="noopener noreferrer" class="button_parent mx-auto" role="button">
+				<span class="button_top_200">Schedule Your FREE Audit Call Now</span>
+			</a>
 			<p>Designs you'll ❤️, guaranteed</p>
 		</section>
 	</div>
-
 	{#if lazyLoad}
 		<img
 			use:inview
